@@ -18,7 +18,9 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'lervag/vimtex'
+Plugin 'NLKNguyen/papercolor-theme'
 "Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -71,6 +73,8 @@ let g:Powerline_symbols = 'fancy'
 
 set laststatus=2
 let g:solarized_termcolors=256
+let g:parsec_termcolors=256
+
 set t_Co=256
 "colorscheme SerialExperimentsLain
 if has('gui_running')
@@ -78,15 +82,20 @@ if has('gui_running')
   colorscheme solarized
 else
   set background=dark
-  colorscheme monokai-chris 
+  "colorscheme PaperColor
+  colorscheme solarized
 endif
 
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat = "pdf"
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 -interaction=nonstopmode $*'
-let g:Tex_Env_figure="\\begin{figure}[<+htpb+>]\<cr>\\centering\<cr>\\includegraphics{<+file+>}\<cr>\\caption{<+caption text+>}\<cr>\\label{fig:<+label+>}\<cr>\\end{figure}<++>"
-"let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf'
+let g:Tex_Env_figure="\\begin{figure}[<+htpb+>]\<cr>\\centering\<cr>\\includegraphics[width={<+widht+>}\\textwidth]{<+file+>}\<cr>\\caption{<+caption text+>}\<cr>\\label{fig:<+label+>}\<cr>\\end{figure}<++>"
+let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf'
+let g:Tex_GotoError=0
+
+
+
 "undo
 "set undofile
 "set undodir=$HOME/.vim/undo
@@ -109,7 +118,7 @@ set softtabstop=4
 set expandtab
 set autoindent
 set fileformat=unix
-
+set backspace=2 " make backspace work like most other programs
 " ----------------------------------------
 " Thinkpad X1 Configuration
 " ----------------------------------------
